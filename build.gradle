@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+	
+	compile fileTree(dir:'c:/libs',include:'*.jar')
+	compile group: 'com.google.code.gson', name: 'gson', version: '2.6.2'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+	
+    testImplementation 'junit:junit:4.12'
+}
+
