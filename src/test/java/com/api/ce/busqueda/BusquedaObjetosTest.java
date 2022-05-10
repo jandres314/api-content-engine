@@ -8,7 +8,7 @@ import java.util.Map;
 import org.junit.Test;
 
 import com.api.ce.conexiones.ConexionOs;
-import com.api.ce.conexiones.FactoryDatosConexion;
+import com.api.factory.FactoryDatosConexion;
 import com.filenet.api.core.ObjectStore;
 
 public class BusquedaObjetosTest {

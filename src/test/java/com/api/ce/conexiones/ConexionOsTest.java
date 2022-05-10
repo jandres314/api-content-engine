@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import com.api.ce.pojo.DatosConexionOs;
+import com.api.factory.FactoryDatosConexion;
 import com.filenet.api.core.ObjectStore;
 
 public class ConexionOsTest {
