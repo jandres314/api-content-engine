@@ -8,12 +8,11 @@ public class ConexionPe {
 
 	public VWSession obtenerSesion(DatosConexionPe datosConexion) {
 
-		VWSession myPESession = new VWSession();
-		myPESession.setBootstrapCEURI(datosConexion.getUrl());
+		VWSession session = new VWSession();
+		session.setBootstrapCEURI(datosConexion.getUrl());
 
-		// Log onto the Process Engine Server
-		myPESession.logon(datosConexion.getUsuario(), datosConexion.getContrasena(), datosConexion.getPuntoConexion());
-		return myPESession;
+		session.logon(datosConexion.getUsuario(), datosConexion.getContrasena(), datosConexion.getPuntoConexion());
+		return session;
 	}
 
 	public void cerrarSesion(VWSession session) {
