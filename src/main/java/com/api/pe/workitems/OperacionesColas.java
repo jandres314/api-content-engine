@@ -38,6 +38,15 @@ public class OperacionesColas {
 
 	public boolean avanzarTarea(VWSession session, String queueName, String wobNumber, Map<String, Object> valores) {
 
+		VWStepElement element = recuperarStepElementPorWobNum(session, queueName, wobNumber);
+		element.doLock(true);
+		parametrosWorkflow.completarParametros(element, valores);
+		element.doDispatch();
+		return true;
+	}
+
+	public VWStepElement recuperarStepElementPorWobNum(VWSession session, String queueName, String wobNumber) {
+
 		VWQueue queue = session.getQueue(queueName);
 
 		int flags = VWQueue.QUERY_READ_UNWRITABLE + VWQueue.QUERY_MIN_VALUES_INCLUSIVE
@@ -48,11 +57,7 @@ public class OperacionesColas {
 		VWQueueQuery query = queue.createQuery("F_WobNum", values, values, flags, null, null,
 				VWFetchType.FETCH_TYPE_STEP_ELEMENT);
 
-		VWStepElement element = (VWStepElement) query.next();
-		element.doLock(true);
-		parametrosWorkflow.completarParametros(element, valores);
-		element.doDispatch();
-		return true;
+		return (VWStepElement) query.next();
 	}
 
 }
