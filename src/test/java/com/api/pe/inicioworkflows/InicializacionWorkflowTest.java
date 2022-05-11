@@ -33,7 +33,7 @@ public class InicializacionWorkflowTest {
 		Map<String, Object> valores = new HashMap<>();
 		valores.put("Nombre", "Jaime Osorio");
 		valores.put("Edad", 34);
-		valores.put("Monto", 1500000);
+		valores.put("Monto", 900000);
 		valores.put("Identificacion", "1039420427");
 		valores.put("TipoIdentificacion", "CC");
 		valores.put("FechaSolicitud", new Date());
