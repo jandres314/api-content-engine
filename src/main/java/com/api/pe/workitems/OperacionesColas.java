@@ -49,7 +49,7 @@ public class OperacionesColas {
 
 		VWQueue queue = session.getQueue(queueName);
 
-		int flags = VWQueue.QUERY_READ_UNWRITABLE + VWQueue.QUERY_MIN_VALUES_INCLUSIVE
+		int flags = VWQueue.QUERY_MIN_VALUES_INCLUSIVE
 				+ VWQueue.QUERY_MAX_VALUES_INCLUSIVE + VWQueue.QUEUE_TYPE_PROCESS;
 
 		VWWorkObjectNumber[] values = { new VWWorkObjectNumber(wobNumber) };

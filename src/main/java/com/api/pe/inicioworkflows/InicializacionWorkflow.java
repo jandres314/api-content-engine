@@ -16,7 +16,7 @@ public class InicializacionWorkflow {
 		VWStepElement element = session.createWorkflow(nombreWorkflow);
 		parametrosWorkflow.completarParametros(element, valores);
 		element.doDispatch();
-		return element.getWorkObjectNumber();
+		return element.getWorkflowNumber();
 	}
 
 }

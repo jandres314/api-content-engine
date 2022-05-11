@@ -39,9 +39,7 @@ public class OperacionesRoster {
 	public boolean avanzarTarea(VWSession session, String nombreRoster, String wobNumber, Map<String, Object> valores) {
 
 		VWRoster roster = session.getRoster(nombreRoster);
-		int flags = VWRoster.QUERY_MAX_VALUES_INCLUSIVE + VWRoster.QUERY_MIN_VALUES_INCLUSIVE
-				+ VWRoster.QUERY_READ_UNWRITABLE + VWRoster.QUERY_RESOLVE_NAMES + VWRoster.QUERY_GET_NO_SYSTEM_FIELDS
-				+ VWRoster.QUERY_GET_NO_TRANSLATED_SYSTEM_FIELDS;
+		int flags = VWRoster.QUERY_MAX_VALUES_INCLUSIVE + VWRoster.QUERY_MIN_VALUES_INCLUSIVE;
 		String index = "F_WobNum";
 		VWWorkObjectNumber[] valoresSustitucion = { new VWWorkObjectNumber(wobNumber) };
 		VWRosterQuery rosterQuery = roster.createQuery(index, valoresSustitucion, valoresSustitucion, flags, null, null,
@@ -50,7 +48,7 @@ public class OperacionesRoster {
 		VWStepElement element = (VWStepElement) rosterQuery.next();
 		element.doLock(true);
 		parametrosWorkflow.completarParametros(element, valores);
-		element.doDispatch();
+		element.doSave(true);
 		return true;
 	}
 

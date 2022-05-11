@@ -34,7 +34,7 @@ public class OperacionesColasTest {
 	@Test
 	public void avanzarTarea() {
 		VWSession session = conexionPe.obtenerSesion(FactoryDatosConexion.obtenerDatosConexionPe());
-		String wobNumber = "124DD57C1B4C5148A9E738F7E5988CFF";
+		String wobNumber = "B8C24492FA251340AAD1811084BA26E6";
 		Map<String, Object> valores = this.obtenerValoresPasoEvaluarSolicitud();
 		String nombreCola = "Inbox";
 		boolean resultado = operacionesColas.avanzarTarea(session, nombreCola, wobNumber, valores);
@@ -44,7 +44,7 @@ public class OperacionesColasTest {
 
 	private Map<String, Object> obtenerValoresPasoEvaluarSolicitud() {
 		Map<String, Object> valores = new HashMap<>();
-		valores.put("Status", "Rechazado");
+		valores.put("Status", "Aprobado");
 		return valores;
 	}
 

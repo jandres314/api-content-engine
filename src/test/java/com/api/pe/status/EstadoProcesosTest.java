@@ -18,7 +18,7 @@ public class EstadoProcesosTest {
 	public void consultaMilestones() {
 		VWSession session = conexionPe.obtenerSesion(FactoryDatosConexion.obtenerDatosConexionPe());
 		String nombreCola = "Inbox";
-		String wobNum = "060897DD875EF4478F2DA5556BD6D0CB";
+		String wobNum = "B8C24492FA251340AAD1811084BA26E6";
 		boolean resultado = estadoProcesos.consultarMilestones(session, nombreCola, wobNum, 1);
 		assertTrue(resultado);
 		conexionPe.cerrarSesion(session);
@@ -28,8 +28,9 @@ public class EstadoProcesosTest {
 	public void consultarHistorial() {
 		VWSession session = conexionPe.obtenerSesion(FactoryDatosConexion.obtenerDatosConexionPe());
 		String nombreCola = "Inbox";
-		String wobNum = "060897DD875EF4478F2DA5556BD6D0CB";
-		estadoProcesos.consultarHistorial(session, nombreCola, wobNum);
+		String wobNum = "B8C24492FA251340AAD1811084BA26E6";
+		boolean resultado = estadoProcesos.consultarHistorial(session, nombreCola, wobNum);
+		assertTrue(resultado);
 		conexionPe.cerrarSesion(session);
 	}
 
