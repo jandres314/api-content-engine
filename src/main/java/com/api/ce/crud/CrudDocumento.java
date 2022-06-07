@@ -146,5 +146,16 @@ public class CrudDocumento {
 		doc.save(RefreshMode.NO_REFRESH);
 		return Boolean.TRUE;
 	}
+	
+	public boolean referenciarDocumento(ObjectStore os, String idFolderaReferenciar, String idDocumento) {
+
+		// recuperacion objeto
+		Document doc = Factory.Document.fetchInstance(os, new Id(idDocumento), null);
+		Folder folderPadre = Factory.Folder.fetchInstance(os, new Id(idFolderaReferenciar), null);
+		ReferentialContainmentRelationship rel = folderPadre.file(doc, AutoUniqueName.NOT_AUTO_UNIQUE,
+				doc.get_Name(), DefineSecurityParentage.DO_NOT_DEFINE_SECURITY_PARENTAGE);
+		rel.save(RefreshMode.NO_REFRESH);
+		return Boolean.TRUE;
+	}
 
 }
